@@ -30,7 +30,7 @@ def convert(timestamp, converter):
     if divisor > 0:
         seconds, subseconds = divmod(timestamp, divisor)
         subseconds_str = '{:.9f}'.format(subseconds / float(divisor))
-        return converter(seconds).isoformat() + subseconds_str[1:].rstrip('0').rstrip('.')
+        return converter(seconds).strftime('%Y-%m-%d %H:%M:%S') + subseconds_str[1:].rstrip('0').rstrip('.')
 
 
 def add_epoch_to_time_conversion(workflow, timestamp, descriptor, converter):
